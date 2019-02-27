@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>小米线 | 注册</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/js/bootstrapvalidator/dist/css/bootstrapValidator.css"/>
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg mui-content">
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <div>
+
+##                <h1 class="logo-name"></h1>
+
+            </div>
+            <h3>注册系统账户</h3>
+            <p>创建账户以查看更多好玩功能</p>
+            <form id="baseForm" class="m-t" role="form" method="post" action="/register/doRegister.shtm">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="用户名" name="userName">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="电子邮件" name="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="密码" name="password" data-bv-different="true" data-bv-different-field="userName" data-bv-different-message="密码不能喝用户名一致">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="确认密码" name="confirmPassword"
+                           required data-bv-notempty-message="不能为空"
+                           data-bv-identical="true" data-bv-identical-field="password" data-bv-identical-message="两次输入的密码不一致"
+                           >
+                </div>
+                <div class="form-group">
+                        <div class="checkbox"><label> <input type="checkbox" name="tk[]"  required data-bv-message="请先同意条款"><i></i><a data-toggle="modal" data-target="#myModal"> 同意条款和政策 </a></label></div>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">注册</button>
+
+                <p class="text-muted text-center"><small>已经有一个帐户?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="/login/getLoginPage.shtm">登录</a>
+            </form>
+            <p class="m-t-lg"> <small>Copyright</strong> 小米线 &copy; 2018-2019</small> </p>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title text-center" id="myModalLabel">小米线协议条款</h4>
+                </div>
+                <div class="modal-body">本网站(小米线网站系统)由小米线创设。在使用本网站前，请您务必仔细阅读下列条款： 本网站的资料、信息及其他内容均由观致提供，任何人进入本网站、阅读本网站所载任何内容、从本网站下载任何资料或使用本网站提供的任何资料，即表示同意遵守这些条款。这些条款构成您与观致之间的协议。如果您不同意遵守这些条款，请勿继续使用本网站。观致有权对这些条款不时进行更新，前述更新之后的条款将在本网站进行公布，并自公布之日起生效。
+
+                    版权声明
+                    本网站所提供任何内容，包括但不限于数据、文字、图表、图象、声音或录像，其所有权、著作权及其他权利均由观致享有。前述权利受中华人民共和国的法律、法规、规章、规范性法律文件及相关国际条约的保护；对前述权利的任何侵犯行为均有可能导致民事、行政或刑事责任，一切后果均由侵权行为人承担。未经观致事先书面许可，您不得以任何方式复制、修改、传播、出版、转载或展示本网站的任何内容。同时，未经观致事先书面许可，对于本网站上的任何内容，任何人不得在非观致所属的服务器上做镜像。
+
+                    本网站采用但非本网站原创的所有内容，其版权归版权所有人所有；转载的部分内容源自其他网站，因无法和版权权利人联系，本网站本着尊重权利人的原则，在相关内容右部醒目注明来源网站的说明。如果您是前述内容的版权权利人，请与我们联系并提供证明材料和详实说明，我们将及时加注版权信息；如果您提出异议，我们将立即撤除任何涉及版权问题的内容。对于独家授权本网站提供的任何内容，如您需要转载，应当事先得到本网站和版权所有人的同意。</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+##                    <button type="button" class="btn btn-primary">提交更改</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+##                <div class="modal-header">
+##                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+##                    <h4 class="modal-title text-center" id="successModalLabel">小米线协议条款</h4>
+##                </div>
+                <div class="modal-body">
+                    <h2 class="modal-title text-center" id="successModalLabel">注册成功,3秒后跳入主页</h2>
+                </div>
+##                <div class="modal-footer">
+##                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+##                ##                    <button type="button" class="btn btn-primary">提交更改</button>
+##                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+    <!-- iCheck -->
+    <script src="/js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function(){
+//            $('.i-checks').iCheck({
+//                checkboxClass: 'icheckbox_square-green',
+//                radioClass: 'iradio_square-green',
+//            });
+
+            //验证
+            $('#baseForm')
+                    .bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            userName: {
+                                message: '用户名已存在!',
+                                validators: {
+                                    notEmpty: {
+                                        message: '用户名不能为空!'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 16,
+                                        message: '用户名长度必须大于6且小于30'
+                                    },
+                                    remote: {
+                                        url: '/register/checkUser.shtm',
+                                        message: '用户名不可用',
+                                        delay: 2000,
+                                        type:'POST'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                                        message: '用户名只能由字母、数字、点和下划线组成'
+                                    }
+                                }
+                            },
+                            email: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '邮箱地址不能为空'
+                                    },
+                                    emailAddress: {
+                                        message: '输入的邮箱不合法'
+                                    },
+                                    remote: {
+                                        url: '/register/checkUser.shtm',
+                                        message: '邮箱已被注册',
+                                        delay: 2000,
+                                        type:'POST'
+                                    },
+                                }
+                            },
+                            password: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '密码不能为空'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 16,
+                                        message: '密码长度必须大于6且小于30'
+                                    }
+                                }
+                            }
+                        }
+                    })
+                    .on('success.form.bv', function(e) {
+                        // Prevent form submission
+                        e.preventDefault();
+
+                        // Get the form instance
+                        var $form = $(e.target);
+                        var acurl = $form.attr('action');
+
+                        // Get the BootstrapValidator instance
+                        var bv = $form.data('bootstrapValidator');
+
+                        // Use Ajax to submit form data
+                        $.post($form.attr('action'), $form.serialize(), function(result) {
+                            if(result.success){
+
+                                $('#successModal').modal('show');
+                                setTimeout(function(){window.top.location.href="/login/getLoginPage.shtm";},3000);
+
+                            }else{
+
+                            }
+                        }, 'json');
+                    });
+        });
+    </script>
+</body>
+
+</html>

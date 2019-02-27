@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mx>
+  <clause id="DateSpan" >
+    <clause prepend="and" assert="!isNullOrEmpty([{1}])" >
+      <clause assert="!isNullOrEmpty({3})">{3}.</clause><![CDATA[{0} >= ]]><method name="beginDate">[{1}]</method>
+    </clause>
+    <clause prepend="and" assert="!isNullOrEmpty([{2}])" >
+      <clause assert="!isNullOrEmpty({3})">{3}.</clause><![CDATA[{0} < ]]><method name="endDate">[{2}]</method>
+    </clause>
+  </clause>
+  <clause id="DateTimeSpan" >
+    <clause prepend="and" assert="!isNullOrEmpty([{1}])" >
+      <clause assert="!isNullOrEmpty({3})">{3}.</clause><![CDATA[{0} >= ]]><method name="toDate">[{1}]</method>
+    </clause>
+    <clause prepend="and" assert="!isNullOrEmpty([{2}])" >
+      <clause assert="!isNullOrEmpty({3})">{3}.</clause><![CDATA[{0} < ]]><method name="toDate">[{2}]</method>
+    </clause>
+  </clause>
+  <clause id="TimeSecondSpan" >
+    <clause prepend="and" assert="hasTime([{1}])" >
+      <clause assert="!isNullOrEmpty({3})">{3}.</clause><![CDATA[{0} >= ]]><method name="toTimeSecond">[{1}]</method>
+    </clause>
+    <clause prepend="and" assert="hasTime([{2}])" >
+      <clause assert="!isNullOrEmpty({3})">{3}.</clause><![CDATA[{0} < ]]><method name="toTimeSecond">[{2}]</method>
+    </clause>
+  </clause>
+  <clause id="NumberSpan" >
+    <clause prepend="and" assert="!isNullOrEmpty([{1}])" >
+      <clause assert="!isNull({3})">{3}.</clause><![CDATA[{0} >= ]]>[{1}]
+    </clause>
+    <clause prepend="and" assert="!isNullOrEmpty([{2}])" >
+      <clause assert="!isNull({3})">{3}.</clause><![CDATA[{0} <= ]]>[{2}]
+    </clause>
+  </clause>
+</mx>

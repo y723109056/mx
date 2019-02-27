@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mx.dao.CityInfoMapper">
+  <resultMap id="BaseResultMap" type="com.mx.entity.CityInfo">
+    <constructor>
+      <idArg column="CITY_ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="CITY_PY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CITY_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="COUNTRY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PROVINCE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="First_CITY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LATITUDE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="LONGITUDE" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    CITY_ID, CITY_PY, CITY_NAME, COUNTRY, PROVINCE, First_CITY, LATITUDE, LONGITUDE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from city_info
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from city_info
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mx.entity.CityInfo">
+    insert into city_info (CITY_ID, CITY_PY, CITY_NAME, 
+      COUNTRY, PROVINCE, First_CITY, 
+      LATITUDE, LONGITUDE)
+    values (#{cityId,jdbcType=INTEGER}, #{cityPy,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, 
+      #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{firstCity,jdbcType=VARCHAR}, 
+      #{latitude,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mx.entity.CityInfo">
+    insert into city_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        CITY_ID,
+      </if>
+      <if test="cityPy != null">
+        CITY_PY,
+      </if>
+      <if test="cityName != null">
+        CITY_NAME,
+      </if>
+      <if test="country != null">
+        COUNTRY,
+      </if>
+      <if test="province != null">
+        PROVINCE,
+      </if>
+      <if test="firstCity != null">
+        First_CITY,
+      </if>
+      <if test="latitude != null">
+        LATITUDE,
+      </if>
+      <if test="longitude != null">
+        LONGITUDE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cityId != null">
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="cityPy != null">
+        #{cityPy,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="firstCity != null">
+        #{firstCity,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mx.entity.CityInfo">
+    update city_info
+    <set>
+      <if test="cityPy != null">
+        CITY_PY = #{cityPy,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        COUNTRY = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        PROVINCE = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="firstCity != null">
+        First_CITY = #{firstCity,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        LATITUDE = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        LONGITUDE = #{longitude,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mx.entity.CityInfo">
+    update city_info
+    set CITY_PY = #{cityPy,jdbcType=VARCHAR},
+      CITY_NAME = #{cityName,jdbcType=VARCHAR},
+      COUNTRY = #{country,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      First_CITY = #{firstCity,jdbcType=VARCHAR},
+      LATITUDE = #{latitude,jdbcType=VARCHAR},
+      LONGITUDE = #{longitude,jdbcType=VARCHAR}
+    where CITY_ID = #{cityId,jdbcType=INTEGER}
+  </update>
+
+  <select id="queryCityIdByCityName" parameterType="java.lang.String" resultType="java.lang.String">
+
+    select city_id from city_info where  #{city_name,jdbcType=VARCHAR} like concat('%',CITY_NAME,'%')
+
+
+  </select>
+
+</mapper>

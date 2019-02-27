@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>小米线 | 登录</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/js/bootstrapvalidator/dist/css/bootstrapValidator.css"/>
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <style>
+        .mui-content{
+            background: url(/img/$!bg) bottom center no-repeat #efeff4;
+            background-size: 100% 100%;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body class="gray-bg mui-content">
+
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div>
+            <div>
+
+##                <h1 class="logo-name"></h1>
+
+            </div>
+            <h3>欢迎登录小米线系统</h3>
+            <p>
+            </p>
+##            <p>小米线系统</p>
+            <form id="baseForm" class="m-t" role="form" action="/login/doLogin.shtm">
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" placeholder="邮箱" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="密码" required="">
+                </div>
+                <div id="loginError" class="alert alert-danger text-center text-danger" style="display: none">
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">登录</button>
+
+                <a href="#"><small>忘记密码?</small></a>
+                <p class="text-muted text-center"><small>还没有账号?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="/login/register.shtm">注册</a>
+                <a class="btn btn-sm btn-white btn-block" href="/login/getGamesPage.shtm">先玩玩小游戏</a>
+            </form>
+            <p class="m-t-lg"> <small>Copyright</strong> 萌萌哒的小米线 &copy; 2018-2019</small> </p>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            //login验证
+            $('#baseForm')
+                    .bootstrapValidator({
+                        message: 'This value is not valid',
+                        feedbackIcons: {
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            email: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '邮箱地址不能为空'
+                                    },
+                                    emailAddress: {
+                                        message: '输入的邮箱不合法'
+                                    }
+                                }
+                            },
+                            password: {
+                                validators: {
+                                    notEmpty: {
+                                        message: '密码不能为空'
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 16,
+                                        message: '密码长度必须大于6且小于16'
+                                    }
+                                }
+                            }
+                        }
+                    })
+                    .on('success.form.bv', function(e) {
+                        // Prevent form submission
+                        e.preventDefault();
+
+                        // Get the form instance
+                        var $form = $(e.target);
+                        var acurl = $form.attr('action');
+
+                        $('#loginError').hide();
+
+                        // Get the BootstrapValidator instance
+                        var bv = $form.data('bootstrapValidator');
+
+                        // Use Ajax to submit form data
+                        $.post($form.attr('action'), $form.serialize(), function(result) {
+
+                            if(result.success){
+                                //跳转主页
+                                $('#loginError').append(result.cause).show();
+
+                            }else{
+                                $('#loginError').append(result.cause).show();
+                            }
+
+
+                        }, 'json');
+                    });
+        });
+    </script>
+
+</body>
+
+</html>

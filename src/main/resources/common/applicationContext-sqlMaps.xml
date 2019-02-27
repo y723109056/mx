@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+
+
+    <import resource="classpath:spring/spring-mybatis.xml" />
+	<import resource="classpath:common/mx.sql.xml" />
+	<!--默认数据库配置放在最后 -->
+	<bean id="MyDbConfig" parent="DbConfig" >
+		<property name="dbType" value="MySql"/>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="options">
+	      <map>
+	      	<entry key="sqlSelectSuffix" value="" />
+	      </map>
+		</property>
+	</bean>
+
+	<bean id="DbConfig" abstract="true" class="com.mx.sql.config.DbConfig" >
+	    <property name="dialects">
+	      <map>
+	        <entry key="SqlServer" value="com.mx.sql.dialect.MsSql2000Dialect" />
+	        <entry key="SqlServer2000" value="com.mx.sql.dialect.MsSql2000Dialect" />
+	        <entry key="SqlServer2005" value="com.mx.sql.dialect.MsSql2005Dialect" />
+	        <entry key="Oracle9" value="com.mx.sql.dialect.Oracle9iDialect" />
+	        <entry key="Oracle10" value="com.mx.sql.dialect.Oracle10gDialect" />
+	        <entry key="MySql" value="com.mx.sql.dialect.MySqlDialect" />
+	        <entry key="Firebird" value="com.mx.sql.dialect.FirebirdDialect" />
+	        <entry key="PostgreSql" value="com.mx.sql.dialect.PostgreSQLDialect" />
+	        <entry key="Sqlite" value="com.mx.sql.dialect.SqlLiteDialect" />
+	        <entry key="DB2" value="com.mx.sql.dialect.DB2Dialect" />
+	      </map>
+	    </property>
+  	</bean>
+</beans>

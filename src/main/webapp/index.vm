@@ -1,0 +1,4 @@
+<script>
+    var pathname = location.pathname;
+    window.top.location.href=".."+location.pathname+"login/getLoginPage.html";
+</script>

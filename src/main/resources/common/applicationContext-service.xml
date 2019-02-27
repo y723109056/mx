@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
+	default-lazy-init="true" default-autowire="byName">
+
+
+	<!-- 类消息 -->
+	<bean id="zmqMessageServer" class="com.mx.transport.zmq.ZMQMessageServer" >
+		<property name="uploadPath" value="${file_root_path}" ></property>
+		<property name="port" value="${file_upload_port}" ></property>
+	</bean>
+
+	<!--此处放Quartz任务调度类-->
+	<bean id="quartzJobService" class="com.mx.quartz.service.QuartzJobService"></bean>
+
+	<bean id="testJob" class="com.mx.quartz.job.TestJob"></bean>
+</beans>

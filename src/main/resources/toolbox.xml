@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toolbox>
+	<data key="webAppVersion" value="1.0.0.0"/>
+	<data key="webAppName" value="小米线系统"/>
+	<tool>
+		<key>date</key>
+		<scope>application</scope>
+		<class>
+			org.apache.velocity.tools.generic.ComparisonDateTool
+		</class>
+		<parameter name="format" value="yyyy-MM-dd" />
+		<parameter name="depth" value="2" />
+		<parameter name="skip" value="month" />
+	</tool>
+	
+	<tool>
+		<key>format</key>
+		<scope>application</scope>
+		<class>com.mx.util.FormatUtil</class>
+	</tool>
+
+	<!--反射工具类，vm页面使用-->
+	<tool>
+		<key>refUtil</key>
+		<scope>application</scope>
+		<class>com.mx.util.ReflectorUtil</class>
+	</tool>
+	<!--格式化工具类-->
+	<tool>
+		<key>formatUtil</key>
+		<scope>application</scope>
+		<class>com.mx.util.FormatUtil</class>
+	</tool>
+	<!--时间帮助类-->
+	<tool>
+		<key>dateUtil</key>
+		<scope>application</scope>
+		<class>com.mx.util.DateUtil</class>
+	</tool>
+	<tool>
+		<key>vmHelper</key>
+		<scope>application</scope>
+		<class>com.mx.util.VmHelper</class>
+	</tool>
+	<tool>
+		<key>fileUtil</key>
+		<scope>application</scope>
+		<class>com.mx.util.FileUtil</class>
+	</tool>
+
+	<tool>
+		<key>dataReaderUtil</key>
+		<scope>application</scope>
+		<class>com.mx.util.DataReaderUtil</class>
+	</tool>
+
+</toolbox>
+

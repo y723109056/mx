@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<import resource="classpath:common/mx.core.xml" />
+	
+	<bean id="DbConfigFactory" class="com.mx.sql.config.DefaultConfigFactory" />
+	
+	<bean id="DriverProviderBuilder" class="com.mx.sql.driver.DataProviderBuilder" >
+	    <property name="dbConfigFactory"  ref="DbConfigFactory" />
+    </bean>
+    
+    <bean id="AbstractSqlMap" class="com.mx.sql.mapping.SqlMap" abstract="true" >
+		<property name="contexts">
+			<set>
+				<ref bean="SqlContext"></ref>
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="SqlContext" class="com.mx.sql.mapping.SqlContext" >
+		<property name="resources" >
+			<set>
+				<value>common/mx.sqlMap.xml</value>
+			</set>
+		</property>
+		<property name="asserts" >
+			<set>
+				<ref bean="isNull" />
+				<ref bean="isNotEmpty" />
+				<ref bean="isAllNotEmpty" />
+				<ref bean="isNullOrEmpty" />
+				<ref bean="isEqual" />
+				<ref bean="isGreater" />
+				<ref bean="isLess" />
+				<ref bean="isGreaterOrEqual" />
+				<ref bean="isLessOrEqual" />
+				<ref bean="hasTime" />
+				<ref bean="hasValue" />
+				<ref bean="isDbType" />
+			</set>
+		</property>
+		<property name="methods" >
+			<set>
+				<ref bean="beginDate" />
+				<ref bean="endDate" />
+				<ref bean="toDate" />
+				<ref bean="toTimeSecond" />
+				<ref bean="currentDate" />
+				<ref bean="currentDateTime" />
+				<ref bean="currentTime" />
+				<ref bean="like" />
+				<ref bean="rlike" />
+				<ref bean="llike" />
+				<ref bean="getSqlValue" />
+				<ref bean="quote"/>
+			</set>
+		</property>
+	</bean>
+	
+	<!-- 判断为空 isNull(p1) -->
+	<bean id="isNull" class="com.mx.sql.mapping.asserts.IsNull" />
+	<!-- 判断不为空或不为空字符串  isNotEmpty(p1) -->
+	<bean id="isNotEmpty" class="com.mx.sql.mapping.asserts.IsNotEmpty" />
+	<!-- 判断都不为空或都不为空字符串  isAllNotEmpty(p1) -->
+	<bean id="isAllNotEmpty" class="com.mx.sql.mapping.asserts.IsAllNotEmpty" />
+	<!-- 判断为空或空字符串  isNullOrEmpty(p1) -->
+	<bean id="isNullOrEmpty" class="com.mx.sql.mapping.asserts.IsNullOrEmpty" />
+	<!-- 判断是否相等 isEqual(p1,p2) -->
+	<bean id="isEqual" class="com.mx.sql.mapping.asserts.IsEqual" />
+	<!-- 判断是否大于 isGreater(p1,p2) -->
+	<bean id="isGreater" class="com.mx.sql.mapping.asserts.IsGreater" />
+	<!-- 判断是否小于 isLess(p1,p2) -->
+	<bean id="isLess" class="com.mx.sql.mapping.asserts.IsLess" />
+	<!-- 判断是否大于或等于 isGreaterOrEqual(p1,p2) -->
+	<bean id="isGreaterOrEqual" class="com.mx.sql.mapping.asserts.IsGreaterOrEqual" />
+	<!-- 判断是否小于或等于 isLessOrEqual(p1,p2) -->
+	<bean id="isLessOrEqual" class="com.mx.sql.mapping.asserts.IsLessOrEqual" />
+	<!-- 判断是否包含时间  -->
+	<bean id="hasTime" class="com.mx.sql.mapping.asserts.HasTime" />
+	<!-- 是否包含某个值 hasValue(p1,p2)  -->
+	<bean id="hasValue" class="com.mx.sql.mapping.asserts.HasValue" />
+	<!-- 判断数据库的类型 isDbType('DB2') -->
+	<bean id="isDbType" class="com.mx.sql.mapping.asserts.IsDbType" />
+	
+	<!-- 得到一天的开始时刻 23:59:59 -->
+	<bean id="beginDate" class="com.mx.sql.mapping.methods.BeginDate" />
+	<!-- 得到一天的结束时刻 00:00:00-->
+	<bean id="endDate" class="com.mx.sql.mapping.methods.EndDate" />
+	<!-- 根据数据库不同转化为相应的日期格式 -->
+	<bean id="toDate" class="com.mx.sql.mapping.methods.ToDate" />
+	<!-- 把时间转化为秒数 -->
+	<bean id="toTimeSecond" class="com.mx.sql.mapping.methods.ToTimeSecond" />
+	<!-- 当前日期 -->
+	
+	<bean id="currentDate" class="com.mx.sql.mapping.methods.CurrentDate" />
+	<!-- 当前日期时间 -->
+	<bean id="currentDateTime" class="com.mx.sql.mapping.methods.CurrentDateTime" />
+	<!-- 当前时间 -->
+	<bean id="currentTime" class="com.mx.sql.mapping.methods.CurrentTime" />
+	<!-- 模糊配置 '%text%' -->
+	<bean id="like" class="com.mx.sql.mapping.methods.Like" />
+	<!-- 模糊配置 'text%' -->
+	<bean id="rlike" class="com.mx.sql.mapping.methods.RLike" />
+	<!-- 模糊配置 '%text' -->
+	<bean id="llike" class="com.mx.sql.mapping.methods.LLike" />
+	<!-- 调Sql返回值 -->
+	<bean id="getSqlValue" class="com.mx.sql.mapping.methods.GetSqlValue" />
+	<!-- 字符串外添加开闭符 -->
+	<bean id="quote" class="com.mx.sql.mapping.methods.Quote" />
+	
+	<!-- 精确查询 -->
+	<bean id="equal" class="com.mx.sql.condition.EqualCondition" />
+	<!-- 多项精确查询 -->
+	<bean id="equals" class="com.mx.sql.condition.EqualsCondition" />
+	<!-- 模糊查询 -->
+	<bean id="fuzzy" class="com.mx.sql.condition.FuzzyCondition" />
+	<!-- 模糊查询,左匹配 -->
+	<bean id="lfuzzy" class="com.mx.sql.condition.FuzzyLeftCondition" />
+	<!-- 模糊查询,右匹配 -->
+	<bean id="rfuzzy" class="com.mx.sql.condition.FuzzyRightCondition" />
+	<!-- 日期段查询 -->
+	<bean id="datespan" class="com.mx.sql.condition.DateSpanCondition" />
+	<!-- 数字段查询 -->
+	<bean id="numspan" class="com.mx.sql.condition.NumberSpanCondition" />
+	
+ </beans>

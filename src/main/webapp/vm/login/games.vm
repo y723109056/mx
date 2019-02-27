@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>小米线游戏</title>
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Toastr style -->
+    <link href="/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i>
+                    </a>
+
+                    <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                            <input type="text" placeholder="请输入搜索内容" class="form-control" name="top-search"
+                                   id="top-search">
+                        </div>
+                    </form>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <span class="m-r-sm text-muted welcome-message">欢迎来到小米线游戏管理后台</span>
+                    </li>
+
+                    <li>
+                        <a href="/login/getLoginPage.shtm">
+                            <i class="fa fa-sign-out"></i> 主页
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>小米线游戏</h2>
+            ##                <ol class="breadcrumb">
+            ##                    <li>
+            ##                        <a href="index.html">主页</a>
+            ##                    </li>
+            ##                    <li>
+            ##                        <a>电子商务</a>
+            ##                    </li>
+            ##                    <li class="active">
+            ##                        <strong>网格布局</strong>
+            ##                    </li>
+            ##                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/airwar/plane_1.png') no-repeat bottom center ">
+                            ##                                <img src="/img/games/biaobai/a8b.png"/>
+                            </div>
+                            <div class="product-desc">
+                            ##                                <span class="product-price">
+                            ##                                    $10
+                            ##                                </span>
+                            ##                                <small class="text-muted">类别</small>
+                                <a href="#" class="product-name"> 飞机大战</a>
+
+                                <div class="small m-t-xs">
+                                    飞机大战各种难度任你选
+                                </div>
+
+
+
+                            ##                                <div class="small m-t-xs">
+                            ##                                    飞机大战
+                            ##                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/airWar.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/biaobai/a8.png') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                            ##                                <span class="product-price">
+                            ##                                    $10
+                            ##                                </span>
+                                <a href="#" class="product-name"> 烟花表白</a>
+
+                                <div class="small m-t-xs">
+                                    烟花炫酷表白
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/biaobai.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box active">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/speedsound/speedsound.png') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                            ##                                <span class="product-price">
+                            ##                                    $10
+                            ##                                </span>
+                            ##                                <small class="text-muted">类别</small>
+                                <a href="#" class="product-name"> 音速</a>
+
+
+                                <div class="small m-t-xs">
+                                    体验音速的快感
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/speedsound.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/guessidioms/guessidioms.jpg') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                                <a href="#" class="product-name"> 猜成语</a>
+
+                                <div class="small m-t-xs">
+                                    猜成语的小游戏
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/guessidioms.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/gobang/gobang.jpg') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                                <a href="#" class="product-name"> 五子棋</a>
+
+                                <div class="small m-t-xs">
+                                    五子棋的小游戏
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/gobang.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/g2028/g2048.jpg') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                                <a href="#" class="product-name"> 2048</a>
+
+                                <div class="small m-t-xs">
+                                    2048的小游戏
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/g2048.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/kxgame/kxgame.png') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                                <a href="#" class="product-name"> 開心消消樂</a>
+
+                                <div class="small m-t-xs">
+                                    開心消消樂的小游戏
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/kxgame.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/courtship/sheart.jpg') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                                <a href="#" class="product-name"> 求愛表白</a>
+
+                                <div class="small m-t-xs">
+                                    浪漫照片花瓣表白
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/courtship.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/love520/love520.jpg') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                                <a href="#" class="product-name"> 愛心輪播表白</a>
+
+                                <div class="small m-t-xs">
+                                    浪漫愛心輪播表白
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/love520.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/loveyou/loveyou.png') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                                <a href="#" class="product-name"> loveyou表白</a>
+
+                                <div class="small m-t-xs">
+                                    loveyou愛心表白
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/loveyou.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+
+                            <div class="product-imitation"
+                                 style="background: url('/img/games/loveu/loveu.png') no-repeat bottom center ">
+                            </div>
+                            <div class="product-desc">
+                                <a href="#" class="product-name"> loveU旋轉愛心</a>
+
+                                <div class="small m-t-xs">
+                                    loveu旋轉愛心
+                                </div>
+                                <div class="m-t text-righ">
+
+                                    <a href="/games/loveu.shtm" class="btn btn-xs btn-outline btn-primary">开始 <i
+                                            class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="pull-right">
+                <strong>www.ygbwork.com</strong>
+            </div>
+            <div>
+                <strong>Copyright</strong> 小米线游戏 &copy; 2017-2018
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Mainly scripts -->
+<script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="/js/inspinia.js"></script>
+<script src="/js/plugins/pace/pace.min.js"></script>
+
+</body>
+
+</html>

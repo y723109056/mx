@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <display-name>Mx Web Application</display-name>
+    <!-- Spring和mybatis的配置文件 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:spring/spring-mybatis.xml
+            classpath:common/mx.core.xml
+            classpath:common/mx.sql.xml
+            classpath:common/applicationContext-sqlMaps.xml
+            classpath:common/applicationContext-service.xml
+
+        </param-value>
+    </context-param>
+    <!-- 编码过滤器 -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- Spring监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- 防止Spring内存溢出监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    <!--  数据 库链接初始化-->
+    <listener>
+        <listener-class>com.mx.listener.DataSourceListener</listener-class>
+    </listener>
+
+    <!-- session有效时间  单位分-->
+    <session-config>
+        <session-timeout>10</session-timeout>
+    </session-config>
+    <!-- session监听 -->
+    <listener>
+        <listener-class>com.mx.listener.SessionListener</listener-class>
+    </listener>
+
+    <!-- quartz定时任务监听 -->
+    <listener>
+        <listener-class>com.mx.quartz.listener.QuartzListener</listener-class>
+    </listener>
+
+
+    <!-- Spring MVC servlet -->
+    <servlet>
+        <servlet-name>SpringMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMVC</servlet-name>
+        <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
+        <url-pattern>*.shtm</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- 异常配置 -->
+    <error-page>
+        <error-code>400</error-code>
+        <location>/error/400.shtm</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.shtm</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.shtm</location>
+    </error-page>
+
+</web-app>
