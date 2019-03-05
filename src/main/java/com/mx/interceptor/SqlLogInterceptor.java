@@ -15,7 +15,6 @@ import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.session.ResultHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Statement;
 import java.util.Properties;
@@ -35,7 +34,6 @@ public class SqlLogInterceptor implements Interceptor {
 
     private Integer userId = null;
 
-    @Autowired
     private SqlLogMapper sqlLogMapper;
 
     private final Logger LOG = LoggerFactory.getLogger(SqlLogInterceptor.class);

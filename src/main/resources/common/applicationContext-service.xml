@@ -2,9 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
-            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
-            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
 	default-lazy-init="true" default-autowire="byName">
 
 
@@ -18,4 +18,45 @@
 	<bean id="quartzJobService" class="com.mx.quartz.service.QuartzJobService"></bean>
 
 	<bean id="testJob" class="com.mx.quartz.job.TestJob"></bean>
+	<!--&lt;!&ndash; 配置redis客户端单机版 &ndash;&gt;-->
+	<!--<bean id="jedisPool" class="redis.clients.jedis.JedisPool">-->
+		<!--<constructor-arg name="host" value="${redis.ip}"></constructor-arg>-->
+		<!--<constructor-arg name="port" value="${redis.port}"></constructor-arg>-->
+	<!--</bean>-->
+	<!--&lt;!&ndash; 配置redis客户端实现类 &ndash;&gt;-->
+	<!--<bean id="jedisClientSingle" class="com.mx.redis.impl.JedisClientSingle"/>-->
+
+	<!-- 配置redis客户端集群版 -->
+	<bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
+		<constructor-arg>
+			<set>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster.node1.ip}"/>
+					<constructor-arg name="port" value="${redis.cluster.node1.port}"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster.node2.ip}"/>
+					<constructor-arg name="port" value="${redis.cluster.node2.port}"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster.node3.ip}"/>
+					<constructor-arg name="port" value="${redis.cluster.node3.port}"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster.node4.ip}"/>
+					<constructor-arg name="port" value="${redis.cluster.node4.port}"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster.node5.ip}"/>
+					<constructor-arg name="port" value="${redis.cluster.node5.port}"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster.node6.ip}"/>
+					<constructor-arg name="port" value="${redis.cluster.node6.port}"/>
+				</bean>
+			</set>
+		</constructor-arg>
+	</bean>
+	<bean id="jedisClientCluster" class="com.mx.redis.impl.JedisClientCluster"/>
+
 </beans>
